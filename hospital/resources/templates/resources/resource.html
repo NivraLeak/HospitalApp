@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="col-3">
+
+      {% if resource.image %}
+        <img src="{{resource.image.url}}" alt="Imagen del recurso" width="200" height="200">
+      {% endif %}
+    </div>
+
+    <div class="col">
+      <div class="h1">{{resource.type}}</div>
+      <div class="h5 font-weight-bold">
+        Estado: <span class="{% if resource.available %}text-success{% else %}text-danger{%endif%}">{% if resource.available %}Disponible {% else %}No disponible {%endif%}</span>
+      </div>
+      <div class="">
+        <p>{{resource.description}}</p>
+      </div>
+
+      <div class="">
+        {% include 'resourcesAllocation/snippets/add.html' %}
+      </div>
+
+    </div>
+
+{% endblock %}

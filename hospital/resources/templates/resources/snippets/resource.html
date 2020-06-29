@@ -1,0 +1,13 @@
+<!-- Resource -->
+<div class="card h-100">
+
+  {% if resource.image %}
+    <img src="{{resource.image.url}}" alt="Imagen del recurso" height="250">
+  {% endif %}
+
+  <div class="card-body">
+    <h5 class="card.title">{{resource.type}}</h5>
+    <p class="card-text">{{resource.description}}</p>
+    <a href="{% url 'resources:resource' resource.slug %}" class="btn btn-primary">Ver mas</a>
+  </div>
+</div>

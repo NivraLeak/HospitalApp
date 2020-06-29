@@ -1,0 +1,46 @@
+[
+{
+    "model": "resources.resource",
+    "pk": 1,
+    "fields": {
+        "type": "Habitacion",
+        "description": "Habitacion de reposo para pacientes graves",
+        "available": true,
+        "slug": "habitacion",
+        "image": "resources/habitacion.png"
+    }
+},
+{
+    "model": "resources.resource",
+    "pk": 2,
+    "fields": {
+        "type": "Camillas",
+        "description": "Camillas de primera edicion",
+        "available": false,
+        "slug": "camillas",
+        "image": "resources/camilla.png"
+    }
+},
+{
+    "model": "resources.resource",
+    "pk": 3,
+    "fields": {
+        "type": "Laboratorio",
+        "description": "Laboratorio de genetica",
+        "available": true,
+        "slug": "laboratorio",
+        "image": "resources/laboratorio.png"
+    }
+},
+{
+    "model": "resources.resource",
+    "pk": 4,
+    "fields": {
+        "type": "Laboratorio especializado",
+        "description": "Laboratorio de busqueda de bacterias y analisis de germenes",
+        "available": true,
+        "slug": "laboratorio-especializado",
+        "image": "resources/laboratorioTec.png"
+    }
+}
+]

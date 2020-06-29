@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if resourceAllocation.resources.exists %}
+    <div class="col-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+
+            <th scope="col">Cantidad</th>
+            <th scope="col">Disponible</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for cp in resourceAllocation.resources_related %}
+            {% with resource=cp.resources %}
+              <tr>
+                <th>{{ forloop.counter }}</th>
+                <th>
+                  {% if resource.image %}
+                    <img src="{{resource.image.url}}" alt="Imagen del recurso " width="40" height="40">
+                  {% endif %}
+                </th>
+                <th>
+                  <a href="{% url 'resources:resource' resource.slug %}"> {{resource.type}}</a>
+                  {% include 'resourcesAllocation/snippets/remove.html' %}
+                </th>
+                <th>{{cp.quantity}}</th>
+                <th>
+                  <span class="font-weight-bold {% if resource.available %}text-success{% else %}text-danger{%endif%}">{{resource.available}}</span>
+                </th>
+              </tr>
+            {% endwith %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+
+    </div>
+  {% else %}
+    <div class="col">
+      <p class="h3">Tus pedidos esta vacio</p>
+      <a href="{% url 'index' %}">Ir a pedidos</a>
+    </div>
+  {% endif %}
+{% endblock %}
